@@ -1,4 +1,12 @@
 module.exports = {
+  modules: [
+    '@nuxtjs/pwa',
+    'nuxt-fontawesome',
+  ],
+  manifest: {
+    name: 'app',
+    lang: 'ja'
+  },
   /*
   ** Headers of the page
   */
@@ -37,6 +45,13 @@ module.exports = {
   },
   plugins: [
     { src: "~plugins/persistedstate.js", ssr: false }
+  ],
+  /*
+  ** Include css not in components
+  */
+  css: [
+    // node.js module but we specify the pre-processor
+    { src: 'bulma/bulma.sass', lang: 'sass' }
   ]
 }
 
