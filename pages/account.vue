@@ -3,16 +3,12 @@
     <!-- ログイン中の画面 -->
     <div v-if="isAuthenticated">
       {{ user.email }}でログイン中です。
-      <button v-on:click="logout">ログアウト</button>
+      <button v-on:click="Logout" class="button is-primary">ログアウト</button>
       <a href="/member-page">メンバーページへ</a>
     </div>
     <!-- 未ログイン時の画面 -->
     <div v-else>
-      メール<br>
-      <input type="text" v-model="email"><br>
-      パスワード<br>
-      <input type="password" v-model="password"><br>
-      <button v-on:click="login">ログイン</button>
+      <button @click="Login" class="button is-primary">googleでログイン</button>
     </div>
   </div>
 </template>
@@ -38,22 +34,16 @@ export default {
   },
   methods : {
     ...mapActions(['setUser']),
-    login() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+    Login: function() {
+      firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
       .then(user => {
-        // ログインしたら飛ぶページを指定
-        // this.$router.push("/member-page")
+        this.$router.push("/member-page")
       }).catch((error) => {
         alert(error)
       });
     },
-    logout() {
-      firebase.auth().signOut()
-      .then(() => {
-        this.setUser(null)
-      }).catch((error) => {
-        alert(error)
-      })
+    Logout: function() {
+      firebase.auth().signOut();
     }
   }
 }
