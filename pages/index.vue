@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <header />
     <div>
       <app-logo/>
       <h1 class="title">
@@ -24,6 +25,7 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import header from '~/components/header.vue'
 
 export default {
   components: {
