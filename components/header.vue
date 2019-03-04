@@ -1,6 +1,9 @@
 <template>
   <div class="header">
-    <b><nuxt-link to="/">Hello Qiita with Nuxt.js ＼＼\\ ٩(*'ω'*)و //／／</nuxt-link></b>
+    <h1>Nuxt.js Sample!</h1>
+    <ul class="menu">
+      <li>メニュー</li>
+    </ul>
   </div>
 </template>
 
