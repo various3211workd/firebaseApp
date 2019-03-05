@@ -1,5 +1,5 @@
 # firebase
-
+Reversingの技術を競うサイトを作成する。
 
 ## Build Setup
 
