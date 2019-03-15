@@ -2,20 +2,18 @@
   <section class="container">
     <div>
       <h1 class="title">
-        firebase
+        Reversers
       </h1>
       <h2 class="subtitle">
-        Nuxt.js project
+        Reversingを愛する者たちへ
       </h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
+          href=""
+          class="button--green">Signin</a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+          href="account"
+          class="button--grey">Login</a>
       </div>
     </div>
   </section>

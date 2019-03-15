@@ -8,7 +8,14 @@
     </div>
     <!-- 未ログイン時の画面 -->
     <div v-else>
+    <!--
       <button @click="Login" class="button is-primary">googleでログイン</button>
+    -->
+      メール<br>
+      <input type="text" v-model="email" class="input"><br>
+      パスワード<br>
+      <input type="password" v-model="password" class="input"><br>
+    <button v-on:click="Login" class="button is-primary">ログイン</button>
     </div>
   </div>
 </template>
@@ -35,6 +42,7 @@ export default {
   },
   methods : {
     ...mapActions(['setUser']),
+    /*
     Login: function() {
       firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
       .then(user => {
@@ -45,7 +53,25 @@ export default {
     },
     Logout: function() {
       firebase.auth().signOut();
-    }
+    },
+    */
+    Login() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+      .then(user => {
+      // ログインしたら飛ぶページを指定
+      this.$router.push("/member-page")
+      }).catch((error) => {
+        alert(error)
+      });
+    },
+    Logout() {
+      firebase.auth().signOut()
+      .then(() => {
+        this.setUser(null)
+      }).catch((error) => {
+        alert(error)
+      })
+    },
   }
 }
 </script>
