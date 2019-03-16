@@ -1,6 +1,9 @@
 <template>
   <section class="container">
-    <div>
+    <div v-if="isAuthenticated">
+      こんにちは{{ user.displayName }}さん<br>
+    </div>
+    <div v-else>
       <h1 class="title">
         Reversers
       </h1>
@@ -20,10 +23,22 @@
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   layout: 'default',
-  components: {
+  computed: {
+    ...mapState(['user']),
+    ...mapGetters(['isAuthenticated'])
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setUser(user)
+    })
+  },
+  methods : {
+    ...mapActions(['setUser'])
   }
 }
 </script>

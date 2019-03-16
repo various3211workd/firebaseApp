@@ -14,10 +14,10 @@
           </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="account">
-              Login
+              Login/Logout
             </a>
-            <a class="navbar-item" href="">
-              test
+            <a class="navbar-item" href="member-page">
+              Myaccount
             </a>
           </div>
         </div>
