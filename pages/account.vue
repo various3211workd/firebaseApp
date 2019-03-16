@@ -4,12 +4,12 @@
       <!-- ログイン中の画面 -->
       <div v-if="isAuthenticated">
         {{ user.email }}でログイン中です。<br>
-        <button v-on:click="Logout" class="button is-primary">ログアウト</button><br>
+        <button v-on:click="Logout" class="button--green">ログアウト</button><br>
         <a href="/member-page">メンバーページへ</a>
       </div>
       <!-- 未ログイン時の画面 -->
       <div v-else>
-        <button @click="Login" class="button is-primary">googleでログイン</button>
+        <button @click="Login" class="button--green">googleでログイン</button>
       </div>
     </div>
   </section>
@@ -20,6 +20,7 @@ import firebase from '~/plugins/firebase'
 import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
+  layout: 'default',
   data() {
     return {
       email: '',
@@ -58,3 +59,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+</style>
