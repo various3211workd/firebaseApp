@@ -2,7 +2,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <p style="font-size: 30px; font-family: Impact, Charcoal;">SAMPLE</p>
+        <p style="font-size: 30px; font-family: Impact, Charcoal;">REVERSERS</p>
       </a>
     </div>
 
@@ -14,10 +14,10 @@
           </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="account">
-              Login
+              Login/Logout
             </a>
-            <a class="navbar-item" href="">
-              test
+            <a class="navbar-item" href="member-page">
+              Myaccount
             </a>
           </div>
         </div>

@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <!-- ログイン中の画面 -->
-    <div v-if="isAuthenticated">
-      {{ user.email }}でログイン中です。
-      <button v-on:click="Logout" class="button is-primary">ログアウト</button>
-      <a href="/member-page">メンバーページへ</a>
+  <section class="container">
+    <div>
+      <!-- ログイン中の画面 -->
+      <div v-if="isAuthenticated">
+        {{ user.email }}でログイン中です。<br>
+        <button v-on:click="Logout" class="button is-primary">ログアウト</button><br>
+        <a href="/member-page">メンバーページへ</a>
+      </div>
+      <!-- 未ログイン時の画面 -->
+      <div v-else>
+        <button @click="Login" class="button is-primary">googleでログイン</button>
+      </div>
     </div>
-    <!-- 未ログイン時の画面 -->
-    <div v-else>
-      <button @click="Login" class="button is-primary">googleでログイン</button>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -35,17 +37,24 @@ export default {
   },
   methods : {
     ...mapActions(['setUser']),
-    Login: function() {
+    Login() {
+      //firebase.auth().signInWithEmailAndPassword(this.email, this.password)
       firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
       .then(user => {
-        this.$router.push("/member-page")
+      // ログインしたら飛ぶページを指定
+      this.$router.push("/member-page")
       }).catch((error) => {
         alert(error)
       });
     },
-    Logout: function() {
-      firebase.auth().signOut();
-    }
+    Logout() {
+      firebase.auth().signOut()
+      .then(() => {
+        this.setUser(null)
+      }).catch((error) => {
+        alert(error)
+      })
+    },
   }
 }
 </script>

@@ -1,31 +1,44 @@
 <template>
   <section class="container">
-    <div>
+    <div v-if="isAuthenticated">
+      こんにちは{{ user.displayName }}さん<br>
+    </div>
+    <div v-else>
       <h1 class="title">
-        firebase
+        Reversers
       </h1>
       <h2 class="subtitle">
-        Nuxt.js project
+        Reversingを愛する者たちへ
       </h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
+          href=""
+          class="button--green">Signin</a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+          href="account"
+          class="button--grey">Login</a>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   layout: 'default',
-  components: {
+  computed: {
+    ...mapState(['user']),
+    ...mapGetters(['isAuthenticated'])
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setUser(user)
+    })
+  },
+  methods : {
+    ...mapActions(['setUser'])
   }
 }
 </script>
