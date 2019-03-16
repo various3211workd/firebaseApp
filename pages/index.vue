@@ -12,11 +12,8 @@
       </h2>
       <div class="links">
         <a
-          href=""
-          class="button--green">Signin</a>
-        <a
           href="account"
-          class="button--grey">Login</a>
+          class="button--green">Login</a>
       </div>
     </div>
   </section>
