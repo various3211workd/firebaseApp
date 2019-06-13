@@ -9,7 +9,7 @@
       </div>
       <!-- 未ログイン時の画面 -->
       <div v-else>
-        <button @click="Login" class="button--green">googleでログイン</button>
+        <button v-on:click="Login" class="button--green">Googleでログイン</button><br>
       </div>
     </div>
   </section>
@@ -39,13 +39,12 @@ export default {
   methods : {
     ...mapActions(['setUser']),
     Login() {
-      //firebase.auth().signInWithEmailAndPassword(this.email, this.password)
       firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
-      .then(user => {
-      // ログインしたら飛ぶページを指定
-      this.$router.push("/member-page")
-      }).catch((error) => {
-        alert(error)
+        .then(user => {
+        // ログインしたら飛ぶページを指定
+        this.$router.push("/member-page")
+        }).catch((error) => {
+          alert(error)
       });
     },
     Logout() {

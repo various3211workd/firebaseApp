@@ -14,7 +14,7 @@
           </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="account">
-              Login/Logout
+              Signin/Signout on Twitter
             </a>
             <a class="navbar-item" href="member-page">
               Myaccount

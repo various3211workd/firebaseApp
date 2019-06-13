@@ -15,10 +15,10 @@
   "dependencies": {
     "@google-cloud/storage": "^2.5.0",
     "@nuxtjs/font-awesome": "^1.0.4",
-    "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
     "bulma": "^0.7.5",
     "busboy": "^0.3.1",
-    "firebase": "^6.1.0",
+    "firebase": "^6.1.1",
     "node-sass": "^4.12.0",
     "nuxt": "^2.8.1",
     "nuxt-fontawesome": "^0.4.0",
